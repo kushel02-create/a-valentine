@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Jellyfish 💙</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background-color: #a0e0ff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: center;
+    color: #004080;
+  }
+
+  .heart {
+    position: absolute;
+    font-size: 20px;
+    color: #80d0ff;
+    animation: fall linear infinite;
+    opacity: 0.7;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); }
+    50% { transform: translateY(50vh) rotate(180deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+  }
+
+  #jelly1, #jelly2 {
+    position: absolute;
+    bottom: 10%;
+    width: 120px;
+    animation: float 4s ease-in-out infinite;
+  }
+  #jelly2 { right: 20%; animation-delay: 2s; transform: scaleX(-1); }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+  }
+
+  #secretButton {
+    padding: 15px 25px;
+    font-size: 1.5em;
+    background: #0080ff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #ffffff;
+    text-shadow: 0 0 8px #80d0ff;
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 10;
+    margin-top: 20px;
+  }
+  #secretButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00bfff;
+  }
+
+  #secretMessage {
+    margin-top: 20px;
+    font-size: 2em;
+    color: #004080;
+    text-shadow: 0 0 10px #80d0ff;
+    display: none;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<img id="jelly1" src="https://i.ibb.co/4f0PqXG/jelly1.png" alt="meduza 1">
+<img id="jelly2" src="https://i.ibb.co/k3Z0mBh/jelly2.png" alt="meduza 2">
+
+<button id="secretButton">Click to reveal the secret 💖</button>
+<div id="secretMessage">I like you ❤️</div>
+
+<audio id="bg-music" loop autoplay>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "💙";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
+  setInterval(createHeart, 300);
+
+  const button = document.getElementById('secretButton');
+  const secret = document.getElementById('secretMessage');
+
+  button.addEventListener('click', () => {
+    secret.style.display = 'block';
+    button.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
