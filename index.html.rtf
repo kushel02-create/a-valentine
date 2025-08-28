@@ -1,126 +1,118 @@
-{\rtf1\ansi\ansicpg1251\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Jellyfish 💙</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background-color: #a0e0ff; /* нежно-голубой фон */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: center;
+    color: #004080;
+  }
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="en">\
-<head>\
-<meta charset="UTF-8">\
-<title>Valentine Jellyfish \uc0\u55357 \u56473 </title>\
-<style>\
-  body \{\
-    margin: 0;\
-    height: 100vh;\
-    background-color: #a0e0ff; /* \uc0\u1085 \u1077 \u1078 \u1085 \u1086 -\u1075 \u1086 \u1083 \u1091 \u1073 \u1086 \u1081  \u1092 \u1086 \u1085  */\
-    font-family: Arial, sans-serif;\
-    display: flex;\
-    justify-content: center;\
-    align-items: center;\
-    flex-direction: column;\
-    overflow: hidden;\
-    text-align: center;\
-    color: #004080;\
-  \}\
-\
-  /* \uc0\u1055 \u1072 \u1076 \u1072 \u1102 \u1097 \u1080 \u1077  \u1089 \u1077 \u1088 \u1076 \u1077 \u1095 \u1082 \u1080  */\
-  .heart \{\
-    position: absolute;\
-    font-size: 20px;\
-    color: #80d0ff;\
-    animation: fall linear infinite;\
-    opacity: 0.7;\
-  \}\
-  @keyframes fall \{\
-    0% \{ transform: translateY(-10vh) rotate(0deg); \}\
-    50% \{ transform: translateY(50vh) rotate(180deg); \}\
-    100% \{ transform: translateY(110vh) rotate(360deg); \}\
-  \}\
-\
-  /* \uc0\u1052 \u1077 \u1076 \u1091 \u1079 \u1082 \u1080  */\
-  #jelly1, #jelly2 \{\
-    position: absolute;\
-    bottom: 10%;\
-    width: 120px;\
-    animation: float 4s ease-in-out infinite;\
-  \}\
-  #jelly2 \{ right: 20%; animation-delay: 2s; transform: scaleX(-1); \}\
-\
-  @keyframes float \{\
-    0% \{ transform: translateY(0); \}\
-    50% \{ transform: translateY(-20px); \}\
-    100% \{ transform: translateY(0); \}\
-  \}\
-\
-  /* \uc0\u1050 \u1085 \u1086 \u1087 \u1082 \u1072  */\
-  #secretButton \{\
-    padding: 15px 25px;\
-    font-size: 1.5em;\
-    background: #0080ff;\
-    border: none;\
-    border-radius: 12px;\
-    cursor: pointer;\
-    color: #ffffff;\
-    text-shadow: 0 0 8px #80d0ff;\
-    transition: transform 0.2s, box-shadow 0.2s;\
-    z-index: 10;\
-    margin-top: 20px;\
-  \}\
-  #secretButton:hover \{\
-    transform: scale(1.1);\
-    box-shadow: 0 0 20px #00bfff;\
-  \}\
-\
-  #secretMessage \{\
-    margin-top: 20px;\
-    font-size: 2em;\
-    color: #004080;\
-    text-shadow: 0 0 10px #80d0ff;\
-    display: none;\
-    z-index: 10;\
-  \}\
-</style>\
-</head>\
-<body>\
-\
-<!-- \uc0\u1052 \u1077 \u1076 \u1091 \u1079 \u1082 \u1080  -->\
-<img id="jelly1" src="https://i.ibb.co/4f0PqXG/jelly1.png" alt="meduza 1">\
-<img id="jelly2" src="https://i.ibb.co/k3Z0mBh/jelly2.png" alt="meduza 2">\
-\
-<!-- \uc0\u1050 \u1085 \u1086 \u1087 \u1082 \u1072  \u1080  \u1089 \u1086 \u1086 \u1073 \u1097 \u1077 \u1085 \u1080 \u1077  -->\
-<button id="secretButton">Click to reveal the secret \uc0\u55357 \u56470 </button>\
-<div id="secretMessage">I like you \uc0\u10084 \u65039 </div>\
-\
-<!-- \uc0\u1052 \u1091 \u1079 \u1099 \u1082 \u1072  -->\
-<audio id="bg-music" loop autoplay>\
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">\
-</audio>\
-\
-<script>\
-  // \uc0\u1057 \u1086 \u1079 \u1076 \u1072 \u1077 \u1084  \u1087 \u1072 \u1076 \u1072 \u1102 \u1097 \u1080 \u1077  \u1089 \u1077 \u1088 \u1076 \u1077 \u1095 \u1082 \u1080 \
-  function createHeart() \{\
-    const heart = document.createElement("div");\
-    heart.classList.add("heart");\
-    heart.innerText = "\uc0\u55357 \u56473 ";\
-    heart.style.left = Math.random() * 100 + "vw";\
-    heart.style.animationDuration = 3 + Math.random() * 3 + "s";\
-    document.body.appendChild(heart);\
-    setTimeout(() => heart.remove(), 6000);\
-  \}\
-  setInterval(createHeart, 300);\
-\
-  // \uc0\u1050 \u1085 \u1086 \u1087 \u1082 \u1072  \u1088 \u1072 \u1089 \u1082 \u1088 \u1099 \u1090 \u1080 \u1103  \u1089 \u1077 \u1082 \u1088 \u1077 \u1090 \u1072 \
-  const button = document.getElementById('secretButton');\
-  const secret = document.getElementById('secretMessage');\
-\
-  button.addEventListener('click', () => \{\
-    secret.style.display = 'block';\
-    button.style.display = 'none';\
-  \});\
-</script>\
-\
-</body>\
-</html>\
-}
+  /* Падающие сердечки */
+  .heart {
+    position: absolute;
+    font-size: 20px;
+    color: #80d0ff;
+    animation: fall linear infinite;
+    opacity: 0.7;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); }
+    50% { transform: translateY(50vh) rotate(180deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+  }
+
+  /* Медузки */
+  #jelly1, #jelly2 {
+    position: absolute;
+    bottom: 10%;
+    width: 120px;
+    animation: float 4s ease-in-out infinite;
+  }
+  #jelly2 { right: 20%; animation-delay: 2s; transform: scaleX(-1); }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* Кнопка */
+  #secretButton {
+    padding: 15px 25px;
+    font-size: 1.5em;
+    background: #0080ff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #ffffff;
+    text-shadow: 0 0 8px #80d0ff;
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 10;
+    margin-top: 20px;
+  }
+  #secretButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00bfff;
+  }
+
+  #secretMessage {
+    margin-top: 20px;
+    font-size: 2em;
+    color: #004080;
+    text-shadow: 0 0 10px #80d0ff;
+    display: none;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<!-- Медузки -->
+<img id="jelly1" src="https://i.ibb.co/4f0PqXG/jelly1.png" alt="meduza 1">
+<img id="jelly2" src="https://i.ibb.co/k3Z0mBh/jelly2.png" alt="meduza 2">
+
+<!-- Кнопка и сообщение -->
+<button id="secretButton">Click to reveal the secret 💖</button>
+<div id="secretMessage">I like you ❤️</div>
+
+<!-- Музыка -->
+<audio id="bg-music" loop autoplay>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Создаем падающие сердечки
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "💙";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
+  setInterval(createHeart, 300);
+
+  // Кнопка раскрытия секрета
+  const button = document.getElementById('secretButton');
+  const secret = document.getElementById('secretMessage');
+
+  button.addEventListener('click', () => {
+    secret.style.display = 'block';
+    button.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
